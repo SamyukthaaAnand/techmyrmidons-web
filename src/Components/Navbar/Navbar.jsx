@@ -26,40 +26,43 @@ function Navbar() {
       </Link>
 
       <nav ref={navRef} id="ll">
-        {location.pathname === "/" ? (
-          <>
-            <a href="#cards" onClick={showNavBar}>
-              Domains
-            </a>
-            <button className="nav-btn nav-close-btn">
-              <FaTimes onClick={showNavBar} />
-            </button>
-          </>
-        ) : (
-          <>
-            <a href="#topics" onClick={showNavBar}>
-              Tools
-            </a>
-            {id === "ai" ? (
-              <a href="#categories" onClick={showNavBar}>
-                Categories
-              </a>
-            ) : null}
-            <a href="#blogs" onClick={showNavBar}>
-              Blogs
-            </a>
-            <a href="#people" onClick={showNavBar}>
-              People
-            </a>
-            <button className="nav-btn nav-close-btn">
-              <FaTimes onClick={showNavBar} />
-            </button>
-          </>
-        )}
-      </nav>
+  {location.pathname === "/" ? (
+    <>
+      <button className="nav-btn nav-close-btn">
+        <FaTimes onClick={showNavBar} />
+      </button>
+    </>
+  ) : (
+    <>
+      <a href="#topics" onClick={showNavBar}>
+        Tools
+      </a>
+      {id === "ai" ? (
+        <a href="#categories" onClick={showNavBar}>
+          Categories
+        </a>
+      ) : null}
+      <a href="#blogs" onClick={showNavBar}>
+        Blogs
+      </a>
+      <a href="#people" onClick={showNavBar}>
+        People
+      </a>
+      <button className="nav-btn nav-close-btn">
+        <FaTimes onClick={showNavBar} />
+      </button>
+    </>
+  )}
+</nav>
+
 
       {/* Right side buttons */}
       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        {location.pathname === "/" && (
+          <a href="#cards" className="domains-btn">
+            Domains
+          </a>
+        )}
         <ThemeToggle /> {/* 👈 the sun/moon toggle */}
         <button className="nav-btn">
           <FaBars onClick={showNavBar} />

@@ -1,8 +1,9 @@
+/* Debugging outline (commented out) */
 /* * {
   outline: 1px solid rgb(255, 53, 53) !important;
 } */
 
-.inative {
+.inactive {
   pointer-events: auto;
 }
 
@@ -29,13 +30,13 @@ nav a {
   font-family: "Poppins";
   font-weight: 500;
   font-size: 1.1rem;
-  color: var(--text);
+  color: var(--text); /* light/dark aware */
   text-decoration: none;
 }
 
 nav a:hover {
   transition: 0.1s;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--text); /* was hardcoded black */
 }
 
 .nav-btn {
@@ -64,10 +65,9 @@ nav a:hover {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: rgba(241, 239, 239, 0.473);
+    background: var(--card); /* dark-mode aware */
     padding: 3rem 0rem;
     gap: 1.5rem;
-    background-color: rgba(241, 239, 239, 0.473);
     backdrop-filter: blur(10px);
     transition: 0.5s;
     transform: translateX(100%);
@@ -78,7 +78,7 @@ nav a:hover {
   }
 
   .nav_popout {
-    transform: none; /* reset any previous transformations applied to the nav, thus making nav expanded again*/
+    transform: none;
   }
 
   .nav-btn {
@@ -90,7 +90,7 @@ nav a:hover {
     cursor: pointer;
     font-size: 1.5rem;
     background: transparent;
-    color: black;
+    color: var(--text); /* was hardcoded black */
     border: none;
     outline: none;
   }
@@ -107,4 +107,26 @@ nav a:hover {
   nav {
     width: 60%;
   }
+}
+
+/* Domains button beside the toggle */
+.domains-btn,
+.domains-btn:visited,
+.domains-btn:active {
+  color: var(--text); /* ✅ respects dark mode */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.domains-btn:hover {
+  background: var(--elev); /* highlight */
+  border-color: rgba(127,127,127,0.4);
+}
+
+/* Ensure all header links adapt */
+.header a {
+  color: var(--text);
 }
